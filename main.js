@@ -79,7 +79,7 @@ async function loadGame ({buildings, upgrades, visuals: {beg, bark}}) {
 }
 
 loadGame({
-  buildings: ['helloworld'],
+  buildings: ['autoclicker'],
   upgrades: [],
   visuals: {
     beg: './assets/beg/snout.jpg',
