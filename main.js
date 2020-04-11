@@ -56,8 +56,8 @@ function addBuilding ({name = 'Untitled Building', func, startprice = 0, multipl
     } else {
       building.animate([
         {left: '0'},
-        {left: '-10%'},
-        {left: '10%'},
+        {left: '-10%', transform: 'rotate(-0.0625turn)'},
+        {left: '10%', transform: 'rotate(0.0625turn)'},
         {left: '0'}
       ], {
         duration: 1000,
