@@ -3,12 +3,34 @@
 
   <head>
     <meta charset="UTF-8">
+    <script defer src="main.js" type="module"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bruh Beagle 3</title>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-
+    <audio src="assets/bruh.mp3" id="bruhsound"></audio>
+    <noscript>
+      <!-- redirect -->
+      <meta http-equiv="Refresh" content="0; url=./badbrowser.html" />
+    </noscript>
+    <img id="beagle" src="./assets/beg/snout.jpg" alt="funny dog">
+    <section id="beaglezone" class="center" onclick="document.getElementById('beagle').click()">
+      <h1 id="bruhcount">0 bruhs</h1>
+    </section>
+    <section id="buildinglist">
+      <h1>Buildings</h1>
+    </section>
+    <section>
+      <h1>Upgrades</h1>
+    </section>
+    <section>
+      <h1>Settings</h1>
+    </section>
+    <script nomodule>
+      location = './badbrowser.html'
+    </script>
   </body>
 
 </html>
