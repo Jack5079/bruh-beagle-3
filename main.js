@@ -23,7 +23,7 @@ Object.defineProperty(window, 'bruhs', {
   }
 })
 
-const buildinglist = document.getElementById('buildinglist')
+const upgradelist = document.getElementById('upgradelist')
 
 const beagle = document.getElementById('beagle')
 beagle.addEventListener('click', () => {
@@ -36,7 +36,7 @@ beagle.addEventListener('click', () => {
 
 window.bruhs += 0
 
-function addBuilding ({name = 'Untitled Building', func, startprice = 0, multiplier = 1}) {
+function addUpgrade ({name = 'Untitled Building', func, startprice = 0, multiplier = 1}) {
   let price = localStorage.getItem(name) || startprice
   const building = document.createElement('article')
   const heading = document.createElement('h3')
@@ -45,7 +45,7 @@ function addBuilding ({name = 'Untitled Building', func, startprice = 0, multipl
   pricep.innerText = `${Math.round(price)} bruh(s)`
   building.appendChild(heading)
   building.appendChild(pricep)
-  buildinglist.appendChild(building)
+  upgradelist.appendChild(building)
   building.addEventListener('click', () => {
     if (price <= window.bruhs) {
       func()
@@ -68,22 +68,14 @@ function addBuilding ({name = 'Untitled Building', func, startprice = 0, multipl
   return building
 }
 
-async function loadGame ({buildings, upgrades, visuals: {beg, bark}}) {
+async function loadGame (upgrades) {
   return {
-    buildings: await Promise.all( // Promise<any>[] -> Promise<any[]>
-      buildings.map(
-        filename => import(`./buildings/${filename}.js`).then(addBuilding) // name -> building
+    upgrades: await Promise.all( // Promise<any>[] -> Promise<any[]>
+      upgrades.map(
+        filename => import(`./buildings/${filename}.js`).then(addUpgrade) // name -> upgrade
       )
     )
   }
 }
 
-loadGame({
-  buildings: ['autoclicker'],
-  upgrades: [],
-  visuals: {
-    beg: './assets/beg/snout.jpg',
-    bark: './assets/bark/birthday.jpg',
-    root: document.body // where the bruh will be
-  }
-}).catch(console.error)
+loadGame(['autoclicker']).catch(console.error)
