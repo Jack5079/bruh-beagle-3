@@ -33,7 +33,6 @@ body {
 
 #beagle {
   position: fixed;
-  cursor: pointer;
   top: 0;
   left: 0;
   width: 100vw;
@@ -46,6 +45,10 @@ body {
 }
 
 #beaglezone {
+  font-family: monospace;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
   user-select: none;
   background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
